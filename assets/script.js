@@ -24,7 +24,7 @@ const start = document.getElementById("start");
 
 const display = document.getElementById("display");
 
-const sec = 5
+const sec = 4
 
 
 start.addEventListener("click", startGame);
@@ -38,18 +38,28 @@ function startGame(){
   display.innerHTML = `Simon's say  ${getRandomNumber(1 , 100) } - ${getRandomNumber(1 , 100) } - ${getRandomNumber(1 , 100) } - ${getRandomNumber(1 , 100) } - ${getRandomNumber(1 , 100) }.`
 
   // DUBBIO SUL CORRETTO POSIZIONAMENTO DI QUESTO TIMER
-  setTimeout(function(){
-    display.classList= "hide";
-}, sec * 1000);
+  setTimeout(hideClass, sec * 1000);
+  setTimeout(ask5times, sec * 1250);
+
 
 
 }
 
+function hideClass(){
+display.classList= "hide";
+}
+
+function ask5times (){
+  let askNumber ;
+  for (let i = 0; i < 5 ; i++) {
+    askNumber = prompt("Inserisci i numeri").trim();
+    
+  }
+  return askNumber
+}
 
 
-
-
-
+// INSERIRE I NUMERI RANDOM IN UN ARRAY e confrontare con i numeri inseriti dallutente
 
 
 function getRandomNumber(min, max){
